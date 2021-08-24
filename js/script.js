@@ -1,17 +1,19 @@
-var km = prompt("Inserisci kilometri da percorrere:");
-var eta = prompt("Inserisci la tua età:");
-var prezzoUni = km * 0.21
+var km = parseInt(prompt("Inserisci kilometri da percorrere:"));
+var eta = parseInt(prompt("Inserisci la tua età:"));
+var prezzo = km * 0.21
 
 
 if (eta < 18) {
-    var prezzo = ( prezzoUni / 100 ) * 80;
+    var sconto = prezzo * 0.20;
+    prezzo -= sconto;
   } else if (eta < 65) {
-    var prezzo = ( prezzoUni / 100 ) * 60 ;
+    var sconto = prezzo * 0.40 ;
+    prezzo -= sconto;
   } else {
-    var prezzo = prezzoUni;
+    var prezzo = prezzo;
   }
 
-document.getElementById("biglietto").innerHTML = "Il costo del biglietto è: " + prezzo + "€";
+document.getElementById("biglietto").innerHTML = "Il costo del biglietto è: " + prezzo.toFixed(2) + "€";
 
 
 
